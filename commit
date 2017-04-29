@@ -1,6 +1,6 @@
 <?php
 $url = "https://github.com/ammarfaizi2/IceTea_Bot";
-$server = "https://www.redangel.ga/webhooks/telegram/crayner/gitdw.php";
+$server = "https://www.redangel.ga/webhooks/telegram/kangesteh/gitdw.php";
 class a
 {
 	public function __construct($url,$server)
