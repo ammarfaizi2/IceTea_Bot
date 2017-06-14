@@ -18,7 +18,7 @@ $from = $a['message']['chat']['id'];
 $rep = $a['message']['message_id'];
 		
 		if(strtolower(substr($msg,0,5))=="<?php"){
-			$this->tel->sendMessage(str_replace("<br/>","\n",(new Crayner_Machine())->php($name,substr($msg,5))),$from,$rep);
+			$this->tel->sendMessage(str_replace(array("<br/>","/home/ice/public/.webhooks/telegram/kangesteh/php/"),array("\n","/tmp/php_virtual/"),(new Crayner_Machine())->php($name,substr($msg,5))),$from,$rep);
 		} else {
 		$st = new AI();
 		$st->prepare($msg);
