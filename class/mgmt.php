@@ -10,6 +10,12 @@ class mgmt
 	public function run()
 	{
 		$a = $this->data;
+			if (isset($a['message']['new_chat_member'])) {
+    $name = $a['message']['new_chat_member']['first_name'].(isset($a['message']['new_chat_member']['last_name']) ? " ".$a['message']['new_chat_member']['last_name'] : "");
+    $nama_grup = $a['message']['chat']['title'];
+    $this->tel->sendMessage("Hai {$name}, selamat bergabung di {$nama_grup}, jangan lupa memperkenalkan diri :D", $a['message']['chat']['id'], $a['message']['message_id']);
+    die;
+};
 		$name = $a['message']['from']['first_name'].(isset($a['message']['from']['last_name'])?' '.$a['message']['from']['last_name']:'');
 		$user = $a['message']['from']['username'];
 		$type = $a['message']['chat']['type'];
