@@ -41,6 +41,9 @@ $rep = $a['message']['message_id'];
                 $run = shell_exec("java {$class_name}");
             }
             if (isset($run)) {
+            	if (empty($run)) {
+            		$run = "Hasil blank";
+            	}
                 $this->tel->sendMessage($run, $from, $rep);
             } else {
                 $compile = empty($compile) ? "Error pas compile bro!" : $compile;
