@@ -11,7 +11,7 @@ $wb = json_decode(file_get_contents("php://input"), true);
 #print_r($wb);
 
 
-$wb = json_decode('{
+/*$wb = json_decode('{
     "update_id": 174643675,
     "message": {
         "message_id": 3245,
@@ -32,7 +32,7 @@ $wb = json_decode('{
         "date": 1498968764,
         "text": "<?java public class suh{\npublic static void main(String args....){}\n}"
     }
-}', true);
+}', true);*/
 
 $app = new mgmt($wb, new Telegram("308645660:AAG-EIkc2qgXsJ2zRk8A4fAREOKXUxKuxM8"));
 $app->run();
