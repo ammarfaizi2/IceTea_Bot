@@ -19,7 +19,7 @@ class Telegram extends Crayner_Machine
         }
         return $p;
     }
-    public function sendMessage($text, $to, $reply=null, $op=null)
+    public function sendMessage($text, $to, $reply=null, $op=null, $qq = null)
     {
         $post = array(
          'chat_id'=>$to,

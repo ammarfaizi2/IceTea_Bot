@@ -42,12 +42,12 @@ $rep = $a['message']['message_id'];
             }
             if (isset($run)) {
             	if (empty($run)) {
-            		$run = "Hasil blank";
+            		$run = "~";
             	}
-                $this->tel->sendMessage($run, $from, $rep);
+				print $this->tel->sendMessage($run, $from, $rep, array("parse_mode"=>null));
             } else {
                 $compile = empty($compile) ? "Error pas compile bro!" : $compile;
-                $this->tel->sendMessage($compile, $from, $rep);
+                print $this->tel->sendMessage($compile, $from, $rep, array("parse_mode"=>null));
             }
         } else {
             $st = new AI();
