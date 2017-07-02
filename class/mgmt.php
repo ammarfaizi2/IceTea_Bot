@@ -32,6 +32,9 @@ $rep = $a['message']['message_id'];
             if (file_exists($class_name.".java")) {
             	unlink($class_name.".java");
             }
+            if (file_exists($class_name.".class")) {
+            	unlink($class_name.".class");
+            }
             file_put_contents($class_name.".java", substr($msg, 6));
             $compile = shell_exec("javac {$class_name}.java");
             if (!$compile) {
