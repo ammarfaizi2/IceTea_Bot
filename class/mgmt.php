@@ -29,6 +29,9 @@ $rep = $a['message']['message_id'];
             $class_name = explode("class", $msg, 2);
             $class_name = explode("{", $class_name[1], 2);
             $class_name = trim($class_name[0]);
+            if (file_exists($class_name.".java")) {
+            	unlink($class_name.".java");
+            }
             file_put_contents($class_name.".java", substr($msg, 6));
             $compile = shell_exec("javac {$class_name}.java");
             if (!$compile) {
