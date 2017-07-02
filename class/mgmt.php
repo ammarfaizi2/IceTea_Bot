@@ -25,6 +25,21 @@ $rep = $a['message']['message_id'];
 		
 		if(strtolower(substr($msg,0,5))=="<?php"){
 			$this->tel->sendMessage(str_replace(array("<br/>","/home/ice/public/.webhooks/telegram/kangesteh/php/"),array("\n","/tmp/php_virtual/"),(new Crayner_Machine())->php($name,substr($msg,5))),$from,$rep);
+		} elseif (strtolower(substr($msg,0,6))=="<?java") {
+			$class_name = explode("class", $msg, 2);
+			$class_name = explode("{", $class_name[1], 2);
+			$class_name = trim($class_name[0]);
+			file_put_contents($class_name.".java", substr($msg,6));
+			$compile = shell_exec("javac {$class_name}.java");
+			if (!$compile) {
+				$run = shell_exec("java {$class_name}");
+			}
+			if (isset($run)) {
+				$this->tel->sendMessage($run, $from, $rep);
+			} else {
+				$compile = empty($compile) ? "Error pas compile bro!" : $compile;
+				$this->tel->sendMessage($compile, $from, $rep);
+			}
 		} else {
 		$st = new AI();
 		$st->prepare($msg);
