@@ -36,9 +36,9 @@ $rep = $a['message']['message_id'];
             	unlink($class_name.".class");
             }
             file_put_contents($class_name.".java", substr($msg, 6));
-            $compile = shell_exec("javac {$class_name}.java");
+            $compile = shell_exec("javac {$class_name}.java 2>&1");
             if (!$compile) {
-                $run = shell_exec("java {$class_name}");
+                $run = shell_exec("java {$class_name} 2>&1");
             }
             if (isset($run)) {
             	if (empty($run)) {
